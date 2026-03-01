@@ -4,7 +4,7 @@
 <h3 align="center">B.Tech CSE Student | Java Full Stack Developer | Web Developer 🚀</h3>
 
 <p align="center">
-  <a href="https://portfolio-green-sigma-68.vercel.app/" target="_blank">
+  <a href="https://dikshakore12.github.io/MyNewPortfolio/" target="_blank">
     <img src="https://img.shields.io/badge/Visit-My%20Portfolio-0A66C2?style=for-the-badge&logo=vercel&logoColor=white"/>
   </a>
 </p>
@@ -16,7 +16,7 @@
 Portfolio website built using **HTML5, CSS3, JavaScript, and jQuery**.
 
 🔗 **Live Demo:**
-👉 [https://portfolio-green-sigma-68.vercel.app/](https://portfolio-green-sigma-68.vercel.app/)
+👉 [https://dikshakore12.github.io/MyNewPortfolio/](https://dikshakore12.github.io/MyNewPortfolio/)
 
 ---
 
