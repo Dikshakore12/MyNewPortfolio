@@ -1,105 +1,374 @@
-$(document).ready(function () {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
-    // Mobile menu toggle
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
-
-    // Scroll top button
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
-
-        if (window.scrollY > 60) {
-            $('#scroll-top').addClass('active');
-        } else {
-            $('#scroll-top').removeClass('active');
-        }
-    });
-
-});
-
-// Title change when tab switch
-document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === "visible") {
-        document.title = "Projects | Portfolio Diksha Kore";
-        $("#favicon").attr("href", "../assets/images/favicon.png");
-    } else {
-        document.title = "Come Back To Diksha's Portfolio";
-    }
-});
-
-
-// ================= FETCH PROJECTS =================
-
-function getProjects() {
-    return fetch("./projects.json")
-        .then(response => response.json())
-        .catch(error => console.error("Error loading JSON:", error));
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none; border: none;
+  text-transform:capitalize;
+  transition: all .2s linear;
+}
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body{
+  background: #f7f7f7;
+  font-family: 'Poppins', sans-serif;
 }
 
-function showProjects(projects) {
-
-    let container = document.querySelector(".box-container");
-    let html = "";
-
-    projects.forEach(project => {
-
-        html += `
-        <div class="grid-item ${project.category}">
-            <div class="box tilt">
-
-               <img src="../assets/images/projects/${project.image}" alt="${project.name}">
-
-                <div class="content">
-                    <div class="tag">
-                        <h3>${project.name}</h3>
-                    </div>
-
-                    <div class="desc">
-                        <p>${project.desc}</p>
-
-                        <div class="btns">
-                            <a href="${project.links.view}" class="btn" target="_blank">
-                                <i class="fas fa-eye"></i> View
-                            </a>
-
-                            <a href="${project.links.code}" class="btn" target="_blank">
-                                Code <i class="fas fa-code"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>`;
-    });
-
-    container.innerHTML = html;
-
-    // Isotope
-    var $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows'
-    });
-
-    $('.button-group').on('click', 'button', function () {
-        $('.button-group').find('.is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-
-    // Tilt effect
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-        speed: 400
-    });
+*::selection{
+  background: #2b3dda;
+  color: #fff;
 }
 
-// Load projects
-getProjects().then(data => {
-    showProjects(data);
-});
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar{
+  width: .8rem;
+}
+html::-webkit-scrollbar-track{
+  background: rgb(235, 202, 245);
+}
+html::-webkit-scrollbar-thumb{
+  background: #420177;
+}
+
+/* navbar starts */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.7rem 10%;
+  height: 6.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+}
+section {
+  min-height: 100vh;
+  padding: 8rem 5%;
+}
+.heading {
+  font-size: 3.5rem;
+  color: rgb(32, 32, 32);
+  font-weight: 800;
+  text-align: center;
+}
+.heading span {
+  color: rgb(115, 3, 167);
+}
+header .logo {
+  font-size: 1.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #0e2431;
+}
+header .logo i {
+  font-size: 2.2rem;
+}
+header .logo:hover {
+  color: #fc8c05;
+}
+header .navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .navbar li {
+  margin-left: 2.5rem;
+}
+header .navbar ul li a {
+  font-size: 1.57rem;
+  color: #0e2431;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04rem;
+  transition: 0.2s;
+}
+header .navbar ul li a.active,
+header .navbar ul li a:hover {
+  color: #011aff;
+  border-bottom: 0.2rem solid #011aff;
+  padding: 0.5rem 0;
+}
+/* navbar ends */
+
+/* hamburger icon starts*/
+#menu {
+  font-size: 3rem;
+  cursor: pointer;
+  color: rgb(24, 2, 63);
+  display: none;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 1.7rem 5%;
+  }
+  #menu {
+    display: block;
+  }
+  header .navbar {
+    position: fixed;
+    top: 6.5rem;
+    right: -120%;
+    width: 100%;
+    height: 100vh;
+    text-align: left;
+    align-items: flex-start;
+    background-color: #0e0f31;
+    transition: 0.3s;
+  }
+  header .navbar ul {
+    flex-flow: column;
+    padding: 2rem;
+    align-items: center;
+  }
+  header .navbar ul li {
+    text-align: center;
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+  header .navbar ul li a {
+    display: block;
+    padding: 1.5rem;
+    text-align: center;
+    color: #fff;
+    font-size: 2.2rem;
+  }
+  header .navbar ul li a.active,
+  header .navbar ul li a:hover {
+    padding: 1.5rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid #011aff;
+  }
+  .fa-times {
+    transform: rotate(180deg);
+  }
+  header .navbar.nav-toggle {
+    right: 0;
+  }
+}
+/* hamburger icon ends */
+
+/* work section starts */
+
+/* ================= WORK SECTION ================= */
+
+.work {
+  background: linear-gradient(to bottom, #010136, #00003a);
+  padding: 8rem 5%;
+}
+
+.work h2 {
+  color: #fff;
+  padding: 1rem;
+}
+
+.work .heading span {
+  color: rgb(255, 230, 0);
+}
+
+/* FILTER BUTTONS */
+.work .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 80rem;
+  justify-content: center;
+}
+
+.work .button-group .btn {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.work .button-group .btn:hover,
+.work .button-group .btn.is-checked {
+  background: #fff;
+  color: #000;
+}
+
+/* PROJECT GRID */
+.work .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+/* PROJECT CARD */
+.work .box-container .box {
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  height: 35rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+
+/* IMAGE FIX */
+.work .box-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.5s;
+}
+
+.work .box-container .box:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY CONTENT */
+.work .box-container .box .content {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease-in-out;
+}
+
+.work .box-container .box:hover .content {
+  top: 0;
+}
+
+/* TITLE STRIP */
+.work .box-container .box .tag {
+  background: #ffd900;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work .box-container .box .tag h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* DESCRIPTION */
+.work .desc {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 5rem);
+}
+
+.work .desc p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* BUTTONS */
+.work .desc .btns {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.work .desc .btns .btn {
+  flex: 1;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: #111;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.work .desc .btns .btn:hover {
+  background: #2506ad;
+}
+
+/* BACK BUTTON */
+.backbtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.backbtn .btn {
+  padding: 1.5rem 3rem;
+  border-radius: 0.5rem;
+  background: #2506ad;
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.backbtn .btn:hover {
+  background: #1a047e;
+}
+
+/* work media queries starts*/
+@media (max-width: 480px) {
+  .work .box-container {
+    grid-template-columns: 1fr;
+  }
+  .work .desc .btns {
+    flex-direction: column;
+  }
+}
+/* work section ends */
+
+/* common media queries starts*/
+@media(max-width:450px){
+  html{
+    font-size: 55%;
+  }
+  body{
+    padding-right: 0;
+  }
+  section{
+    padding: 2rem;
+  }
+}
+/* common media queries ends*/
+
+
+/* scroll top starts */
+#scroll-top{
+  position: fixed;
+  top: -140%;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  background: #ffae00;
+  color: rgb(13, 0, 44);
+  border-radius: 5rem;
+  transition: 1s linear;
+  z-index: 1000;
+}
+#scroll-top.active{
+  top: calc(100% - 12rem);
+}
+/* scroll top ends */
