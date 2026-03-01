@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Favicon (IMPORTANT: ../ added) -->
+    <link id="favicon" rel="shortcut icon" href="../assets/images/favicon.png">
+
+    <title>Projects | Portfolio Diksha Kore</title>
+</head>
+
+<body oncontextmenu="return false">
+
+<!-- ================= NAVBAR ================= -->
+<header>
+    <a href="../index.html" class="logo">DK</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#education">Education</a></li>
+            <li><a class="active" href="../index.html#work">Work</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= PROJECT SECTION ================= -->
+<section class="work" id="work">
+
+    <h2 class="heading">
+        <i class="fas fa-laptop-code"></i>
+        Projects <span>Made</span>
+    </h2>
+
+    <!-- FILTER BUTTONS -->
+    <div class="button-group">
+        <button class="btn is-checked" data-filter="*">All Projects</button>
+        <button class="btn" data-filter=".ai">AI / ML</button>
+        <button class="btn" data-filter=".security">Security</button>
+        <button class="btn" data-filter=".web">Web Development</button>
+    </div>
+
+    <!-- Projects will load dynamically here -->
+    <div class="box-container">
+    </div>
+
+    <!-- BACK BUTTON -->
+    <div class="backbtn">
+        <a href="../index.html#work" class="btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+</section>
+
+
+<!-- Scroll Top -->
+<a href="#work" class="fas fa-angle-up" id="scroll-top"></a>
+
+
+<!-- ================= JS CDN ================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+
+<!-- IMPORTANT: script.js inside projects folder -->
+<script src="./script.js"></script>
+
+</body>
+</html>

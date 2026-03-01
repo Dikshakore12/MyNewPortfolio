@@ -1,0 +1,52 @@
+[
+  {
+    "name": "CareerSync AI",
+    "desc": "AI-Powered Resume & Job Match Platform that analyzes resumes, evaluates job compatibility, and generates intelligent career insights using Next.js, FastAPI, and OpenAI.",
+    "image": "careersync.jpg",
+    "category": "ai",
+    "links": {
+      "view": "https://careersyncai-1-meoo.onrender.com",
+      "code": "https://github.com/Dikshakore12"
+    }
+  },
+  {
+    "name": "Dynamic NoteMate Bot",
+    "desc": "AI-powered chatbot with voice input, PDF generation, and intelligent note creation using Flask and JavaScript.",
+    "image": "chatbot.jpg",
+    "category": "ai",
+    "links": {
+      "view": "https://notematechatbot-2.onrender.com",
+      "code": "https://github.com/Dikshakore12"
+    }
+  },
+  {
+    "name": "Paper-Leak Proof Protection Model",
+    "desc": "Secure document protection system using Triple DES encryption with scheduled email delivery.",
+    "image": "security.jpg",
+    "category": "security",
+    "links": {
+      "view": "https://threedes.onrender.com",
+      "code": "https://github.com/Dikshakore12"
+    }
+  },
+  {
+    "name": "E-Commerce Web Application",
+    "desc": "Responsive e-commerce website built using React, Bootstrap, HTML, CSS, and JavaScript.",
+    "image": "ecommerce.jpg",
+    "category": "web",
+    "links": {
+      "view": "https://dikshakore12.github.io/E-commerceWeb/",
+      "code": "https://github.com/Dikshakore12/E-commerceWeb"
+    }
+  },
+  {
+    "name": "Personal Portfolio Website",
+    "desc": "Modern animated portfolio website showcasing skills, education, and projects.",
+    "image": "portfolio.jpg",
+    "category": "web",
+    "links": {
+      "view": "https://portfolio-green-sigma-68.vercel.app/",
+      "code": "https://github.com/Dikshakore12"
+    }
+  }
+]
