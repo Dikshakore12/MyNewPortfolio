@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dikshakore12.github.io/diksha-kore-java-fullstack-portfolio/sitemap.xml
