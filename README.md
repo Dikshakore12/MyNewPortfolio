@@ -16,7 +16,7 @@
 Portfolio website built using **HTML5, CSS3, JavaScript, and jQuery**.
 
 🔗 **Live Demo:**
-👉 [https://dikshakore12.github.io/MyNewPortfolio/](https://dikshakore12.github.io/diksha-kore-java-fullstack-portfolio/)
+👉 [https://dikshakore12.github.io/diksha-kore-java-fullstack-portfolio/](https://dikshakore12.github.io/diksha-kore-java-fullstack-portfolio/)
 
 ---
 
